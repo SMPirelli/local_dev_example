@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<head>
+
+  <title> Basic App Example </title>
+  <link rel="stylesheet" href="styles/angular-material.css">
+  <link rel="stylesheet" href="styles/docs.css">
+  <link rel="stylesheet" href="styles/roboto.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/nv.d3.min.css">
+
+  <script src="scripts/framework/angular.js"></script>
+  <script src="scripts/framework/angular-animate.min.js"></script>
+  <script src="scripts/framework/angular-route.min.js"></script>
+  <script src="scripts/framework/angular-aria.min.js"></script>
+  <script src="scripts/framework/angular-messages.min.js"></script>
+  <script src="scripts/framework/svg-assets-cache.js"></script>
+  <script src="scripts/framework/angular-material.min.js"></script>
+  <script src="scripts/framework/d3.min.js" charset="utf-8"></script>
+  <script src="scripts/framework/nv.d3.min.js"></script>
+  <script type="text/javascript" src='scripts/app.js'></script>
+
+</head>
+
+<body ng-app="myApp" ng-cloak ng-controller="ctrlMain">
+
+ <md-card>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">Add Numbers</span>
+        <span class="md-subhead">Select Two Numbers You Want To Add</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <div layout="row">
+
+        <md-input-container>
+          <label>Number 1</label>
+          <md-select ng-model="number_one">
+            <md-option ng-repeat="num in numbers" ng-value="num">
+              {{ num }}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container>
+          <label>Number 2</label>
+          <md-select ng-model="number_two">
+            <md-option ng-repeat="num in numbers" ng-value="num">
+              {{ num }}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <md-button class="md-raised md-primary" ng-click="add()"
+        ng-disabled="!number_two || !number_one">Add</md-button>
+      </div>
+      <div>
+        <h3>Result: {{ add_result }}</h3>
+      </div>
+
+      </md-card-content>
+    </md-card-content>
+  </md-card>
+
+  <md-card>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">Get Time</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <md-button class="md-raised md-primary" ng-click="getTime()">Time</md-button>
+      <div>
+        <h3>Current Time: {{ currentTime }}</h3>
+      </div>
+    </md-card-content>
+  </md-card>
+
+</body>
+</html>
+
+
+
